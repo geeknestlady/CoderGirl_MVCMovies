@@ -8,20 +8,38 @@ namespace CoderGirl_MVCMovies.Controllers
 {
     public class MovieRatingController : Controller
     {
-        public IActionResult Index()
+        private string htmlForm = @"
+            <form method= 'post'>
+            <input name= 'movieName'/>
+                <select name= 'rating'>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+               <button type= 'submit'>Submit</button>
+            </form>";
+
+        [HttpGet]
+        public IActionResult Create()
         {
-            return View();
+            return Content(htmlForm,"text/html");
         }
 
-        //Create a string html template for a form
-        // with method of post
-        // an input with name "movieName" 
-        // a select with name "rating" and that contains options for 1 through 5
-        // a button with type of submit
+        [HttpPost]
+        public IActionResult Create(string movieName, string rating)
+        {
+            return RedirectToAction(actionName: nameof(Details), routeValues: new { movieName, rating });
 
-        // Create an GET Action for Create which returns the above template as Content
+        }
+        [HttpGet]
+        public IActionResult Details(string movieName, string rating)
+        {
+            return Content($"{movieName} has a rating of {rating}");
+        }
 
-        // Create a POST Action for Create which takes...
+       
         // two string parameters which match the names of the input and select names in the template
         // The method should redirect to a the GET Action for Details. Be sure to pass the parameters as route values.
 
