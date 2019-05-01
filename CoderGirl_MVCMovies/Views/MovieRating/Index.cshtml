@@ -1,14 +1,13 @@
 ﻿
 @{
-    ViewData["Title"] = "Movies";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Movies</h1>
-<a asp-controller="Movie" asp-action="Create">Add New Movie</a>
+<h1>Movie Ratings</h1>
+
 <table>
     <tr>
         <th>Movie Name</th>
-        
     </tr>
     @foreach (var movie in ViewBag.Movies)
     {
@@ -16,5 +15,4 @@
             <td>@movie.Value</td>
         </tr>
     }
-  
 </table>
