@@ -42,11 +42,11 @@ namespace CoderGirl_MVCMovies.Controllers
         // TODO: Change the input tag for movie name to be a drop down which has a list of movies from the movie repository
         // TODO: Change this method to return that view. 
         [HttpGet]
-        public IActionResult Create()
-        {
-            ViewBag.Movies = MovieController.movies;
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    ViewBag.Movies = MovieController.movies;
+        //    return View();
+        //}
 
         // TODO: Save the movie/rating in the MovieRatingRepository before redirecting to the Details page
         [HttpPost]
