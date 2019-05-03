@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 
 namespace CoderGirl_MVCMovies.Data
 {
+    
     public class MovieRatingRepository : IMovieRatingRepository
     {
+        public static List<MovieRating> ratings = new List<MovieRating>();
+        private static int nextID = 1; 
+
         public decimal GetAverageRatingByMovieName(string movieName)
         {
-            decimal average = 
+            List<MovieRating> movieRatings = movieName.Where(tacoCat => tacoCat.Movie).ToList();
         }
 
         public List<int> GetIds()
@@ -32,4 +36,5 @@ namespace CoderGirl_MVCMovies.Data
             throw new NotImplementedException();
         }
     }
+   
 }
