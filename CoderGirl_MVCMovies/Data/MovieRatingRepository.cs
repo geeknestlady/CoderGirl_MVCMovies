@@ -13,22 +13,24 @@ namespace CoderGirl_MVCMovies.Data
 
         public decimal GetAverageRatingByMovieName(string movieName)
         {
-            List<MovieRating> movieRatings = movieName.Where(tacoCat => tacoCat.Movie).ToList();
+            decimal average = ratings.Where(tacoCat => tacoCat.Movie == movieName).Average(purrCat => purrCat.Rating);
+            return average;
         }
 
         public List<int> GetIds()
         {
-            throw new NotImplementedException();
+            return ratings.Select(tacoCat => tacoCat.ID).ToList();
         }
 
         public string GetMovieNameById(int id)
         {
-            throw new NotImplementedException();
+           string movieNameID = ratings.Where(tacoCat => tacoCat.ID == id);
+            return movieNameID;
         }
 
         public int GetRatingById(int id)
         {
-            throw new NotImplementedException();
+            int ratingId = ratings.Where(tacoCat => tacoCat.ID == id);
         }
 
         public int SaveRating(string movieName, int rating)
