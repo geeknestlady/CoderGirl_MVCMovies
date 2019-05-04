@@ -24,18 +24,27 @@ namespace CoderGirl_MVCMovies.Data
 
         public string GetMovieNameById(int id)
         {
-           string movieNameID = ratings.Where(tacoCat => tacoCat.ID == id);
+           string movieNameID = ratings.Where(tacoCat => tacoCat.ID == id).Select(purrCat => purrCat.Movie).SingleOrDefault();
             return movieNameID;
         }
 
         public int GetRatingById(int id)
         {
-            int ratingId = ratings.Where(tacoCat => tacoCat.ID == id);
+            var ratingId = ratings.Where(tacoCat => tacoCat.ID == id).Select(purrCat => purrCat.Rating);
+            return Convert.ToInt32(ratingId);
         }
 
         public int SaveRating(string movieName, int rating)
         {
-            throw new NotImplementedException();
+            MovieRating movieRating = new MovieRating
+            {
+                ID = nextID,
+                Rating = rating,
+                Movie = movieName,
+            };
+            nextID++;
+            return movieRating.ID;
+            
         }
     }
    

@@ -7,14 +7,14 @@
 
 <table>
     <tr>
-        <th>Movie Name</th>
-        <th>Movie Rating</th>
+        <th>Movie</th>
+        <th>Rating</th>
     </tr>
     @foreach (var movie in ViewBag.Movies)
     {
         <tr>
-            <td>@movie.Value</td>
-            <td>@movie.Rating</td>
+            <td id="movie.ID">@movie.Movie</td>
+            <td id="movie.ID">@movie.Rating</td>
         </tr>
     }
 </table>

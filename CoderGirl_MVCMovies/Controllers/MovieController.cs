@@ -8,7 +8,8 @@ namespace CoderGirl_MVCMovies.Controllers
 {
     public class MovieController : Controller
     {
-        public static Dictionary<int, string> movies = new Dictionary<int, string>();
+       // public static Dictionary<int, string> movies = new Dictionary<int, string>();
+        public static List<Movie> movies = new List<Movie>();
         private static int nextIdToUse = 1; 
 
         public IActionResult Index()
@@ -26,8 +27,13 @@ namespace CoderGirl_MVCMovies.Controllers
         [HttpPost]
         public IActionResult Create(string movie)
         {
-            movies.Add(nextIdToUse, movie);
+            Movie movieName = new Movie
+            {
+                ID = nextIdToUse,
+                MoviesName = movie,
+            };
             nextIdToUse++;
+            
             return RedirectToAction(actionName: nameof(Index));
         }
     }
