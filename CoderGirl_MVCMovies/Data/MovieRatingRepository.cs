@@ -8,12 +8,12 @@ namespace CoderGirl_MVCMovies.Data
     
     public class MovieRatingRepository : IMovieRatingRepository
     {
-        public static List<MovieRating> ratings = new List<MovieRating>();
+        public static List<Movie> ratings = new List<Movie>();
         private static int nextID = 1; 
 
         public decimal GetAverageRatingByMovieName(string movieName)
         {
-            decimal average = ratings.Where(tacoCat => tacoCat.Movie == movieName).Average(purrCat => purrCat.Rating);
+            decimal average = ratings.Where(tacoCat => tacoCat.Name == movieName).Average(purrCat => purrCat.Rating);
             return average;
         }
 
@@ -24,7 +24,7 @@ namespace CoderGirl_MVCMovies.Data
 
         public string GetMovieNameById(int id)
         {
-           string movieNameID = ratings.Where(tacoCat => tacoCat.ID == id).Select(purrCat => purrCat.Movie).SingleOrDefault();
+           string movieNameID = ratings.Where(tacoCat => tacoCat.ID == id).Select(purrCat => purrCat.Name).SingleOrDefault();
             return movieNameID;
         }
 
@@ -36,15 +36,17 @@ namespace CoderGirl_MVCMovies.Data
 
         public int SaveRating(string movieName, int rating)
         {
-            MovieRating movieRating = new MovieRating
+            Movie movieRating = new Movie
             {
                 ID = nextID,
                 Rating = rating,
-                Movie = movieName,
+                Name = movieName,
             };
+
             nextID++;
+            ratings.Add(movieRating);
             return movieRating.ID;
-            
+                      
         }
     }
    

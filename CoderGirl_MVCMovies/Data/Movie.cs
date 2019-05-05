@@ -7,8 +7,8 @@ namespace CoderGirl_MVCMovies
 {
     public class Movie
     {
-        public string MoviesName { get; set; }
+        public string Name { get; set; }
         public int ID { get; set; }
-        public decimal MovieRating { get; set; }
+        public decimal Rating { get; set; }
     }
 }

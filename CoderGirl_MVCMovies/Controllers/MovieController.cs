@@ -30,9 +30,10 @@ namespace CoderGirl_MVCMovies.Controllers
             Movie movieName = new Movie
             {
                 ID = nextIdToUse,
-                MoviesName = movie,
+                Name = movie,
             };
             nextIdToUse++;
+            movies.Add(movieName);
             
             return RedirectToAction(actionName: nameof(Index));
         }
