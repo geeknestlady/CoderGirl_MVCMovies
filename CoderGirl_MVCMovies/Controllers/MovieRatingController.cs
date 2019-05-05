@@ -66,7 +66,7 @@ namespace CoderGirl_MVCMovies.Controllers
         {
             ViewBag.Name = movieName;
             ViewBag.Rating = rating;
-            return Content($"{movieName} has a rating of {rating}");
+            return View();
         }
     }
 }
