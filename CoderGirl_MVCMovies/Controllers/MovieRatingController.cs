@@ -9,9 +9,9 @@ namespace CoderGirl_MVCMovies.Controllers
 {
     public class MovieRatingController : Controller
     {
-        private IMovieRatingRepository repository = RepositoryFactory.GetMovieRatingRepository();
+        private MovieRatingRepository repository = (MovieRatingRepository)RepositoryFactory.GetMovieRatingRepository();
 
-        
+
         public static List<Movie> movies = Controllers.MovieController.movies;
         public static Movie movie = new Movie();
 
@@ -31,23 +31,14 @@ namespace CoderGirl_MVCMovies.Controllers
        
         
         /// TODO: Each tr with a movie rating should have an id attribute equal to the id of the movie rating
-        public IActionResult Index()
-        {
-
-            //List<int> getIDs = repository.GetIds();
-            
-            //Dictionary<string, int> ids = new Dictionary<string, int>();
-
-            //foreach (int id in getIDs)
-            //{
-            //    string name = repository.GetMovieNameById();
-            //    int rating = repository.GetRatingById();
-            //    ids.Add(name, rating);
-            //}
-
-            //ViewBag.Movies = getIDs;
-            return View();
-        }
+      
+            public IActionResult Index()
+            {
+                var getIDs = repository.GetMovieRatings();
+                ViewBag.Movies = getIDs;
+                return View();
+            }
+        
 
         // TODO: Create a view MovieRating/Create and put the htmlForm there. Remember that html in a view should not be a string.
         // TODO: Change the input tag for movie name to be a drop down which has a list of movies from the movie repository

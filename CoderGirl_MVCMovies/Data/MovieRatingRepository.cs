@@ -11,6 +11,10 @@ namespace CoderGirl_MVCMovies.Data
         public static List<MovieRating> ratings = new List<MovieRating>();
         private static int nextID = 1;
 
+        public List<MovieRating> GetMovieRatings()
+        {
+            return ratings;
+        }
         public List<decimal> GetRatings()
         {
             return ratings.Select(tacoCat => tacoCat.Rating).ToList();
