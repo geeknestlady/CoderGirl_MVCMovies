@@ -11,6 +11,7 @@ namespace CoderGirl_MVCMovies.Controllers
     {
         private IMovieRatingRepository repository = RepositoryFactory.GetMovieRatingRepository();
 
+        
         public static List<Movie> movies = Controllers.MovieController.movies;
         public static Movie movie = new Movie();
 
@@ -32,8 +33,19 @@ namespace CoderGirl_MVCMovies.Controllers
         /// TODO: Each tr with a movie rating should have an id attribute equal to the id of the movie rating
         public IActionResult Index()
         {
-                       
-            ViewBag.Movies = movies;
+
+            //List<int> getIDs = repository.GetIds();
+            
+            //Dictionary<string, int> ids = new Dictionary<string, int>();
+
+            //foreach (int id in getIDs)
+            //{
+            //    string name = repository.GetMovieNameById();
+            //    int rating = repository.GetRatingById();
+            //    ids.Add(name, rating);
+            //}
+
+            //ViewBag.Movies = getIDs;
             return View();
         }
 
@@ -46,9 +58,7 @@ namespace CoderGirl_MVCMovies.Controllers
             ViewBag.Movies = MovieController.movies;
             return View();
         }
-
-        // TODO: Save the movie/rating in the MovieRatingRepository before redirecting to the Details page
-        // TODO: Redirect passing only the id of the created movie/rating
+               
 
         [HttpPost]
         public IActionResult Create(string movieName, string rating)
@@ -64,6 +74,7 @@ namespace CoderGirl_MVCMovies.Controllers
         [HttpGet]
         public IActionResult Details(string movieName, string rating)
         {
+            
             ViewBag.Name = movieName;
             ViewBag.Rating = rating;
             return View();
