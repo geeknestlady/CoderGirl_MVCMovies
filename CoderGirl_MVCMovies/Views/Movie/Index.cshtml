@@ -16,7 +16,7 @@
     </tr>
     @foreach (var movie in Model)
     {
-    <tr>
+    <tr id="@movie.Id">
         <td>@movie.Name</td>
         <td>@movie.DirectorName</td>
         <td>@movie.Year</td>

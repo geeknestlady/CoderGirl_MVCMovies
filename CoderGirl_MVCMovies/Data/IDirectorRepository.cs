@@ -6,7 +6,7 @@ using CoderGirl_MVCMovies.Models;
 
 namespace CoderGirl_MVCMovies.Data
 {
-    interface IDirectorRepository
+   public interface IDirectorRepository
     {
         int Save(Director director);
 
