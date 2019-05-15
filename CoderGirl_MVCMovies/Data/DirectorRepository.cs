@@ -29,6 +29,8 @@ namespace CoderGirl_MVCMovies.Data
         public int Save(Director director)
         {
             director.Id = nextId++;
+            string format = $"{director.LastName}, + {director.FirstName}";
+            director.LastFirst = format;
             directors.Add(director);
             return director.Id;
         }

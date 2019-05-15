@@ -22,7 +22,7 @@ namespace CoderGirl_MVCMovies.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Directors = directorRepository.GetDirectors().Select(m => m.LastFirst).ToList();
+            ViewBag.Directors = directorRepository.GetDirectors();//.Select(m => m.FirstName).ToList();
             return View();
         }
 
