@@ -30,14 +30,21 @@ namespace CoderGirl_MVCMovies.Data
         {
             director.Id = nextId++;
             directors.Add(director);
-            return director.Id; 
+            return director.Id;
         }
 
         public void Update(Director director)
         {
             this.Delete(director.Id);
             directors.Add(director);
+        }      
+        private Director NameFormat (Director director)
+        {
+            string format = $"{director.LastName}, + {director.FirstName}";
+            director.LastFirst = format;
+            return director;
         }
+     
         
     }
 }

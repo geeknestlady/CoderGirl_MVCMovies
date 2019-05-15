@@ -11,6 +11,7 @@ namespace CoderGirl_MVCMovies.Data
         static List<Movie> movies = new List<Movie>();
         static int nextId = 1;
         static IMovieRatingRepository ratingRepository = RepositoryFactory.GetMovieRatingRepository();
+        public static IDirectorRepository directorRepository = RepositoryFactory.GetDirectorRepository();
 
         public void Delete(int id)
         {
@@ -51,6 +52,7 @@ namespace CoderGirl_MVCMovies.Data
             movie.Ratings = ratings;
             return movie;
         }
+       
         //Created method to Set the movie.AverageRating from ratingRepository
         private Movie SetAverageRating(Movie movie)
         {

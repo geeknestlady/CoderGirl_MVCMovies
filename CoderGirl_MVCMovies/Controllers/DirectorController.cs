@@ -14,18 +14,19 @@ namespace CoderGirl_MVCMovies.Controllers
 
         public IActionResult Index()
         {
-            List<Director> movies = directorRepository.GetDirectors();
-            return View();
+            List<Director> directors = directorRepository.GetDirectors();            
+            return View(directors);
         }
 
         [HttpGet]
-        public IActionResult Create2()
+        public IActionResult Create()
         {
+            //ViewBag.Directors = directorRepository.GetDirectors().Select(m => m.LastFirst).ToList();
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create2(Director director)
+        public IActionResult Create(Director director)
         {
             directorRepository.Save(director);
             return RedirectToAction(actionName: nameof(Index));

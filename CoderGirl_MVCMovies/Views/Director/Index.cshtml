@@ -9,11 +9,11 @@
     <tr>
         <th>Name</th>
         <th>BirthDate</th>
-        <th>Nationality</th>        
+        <th>Nationality</th>
     </tr>
     @foreach (var director in Model)
     {
-        <tr>
+        <tr id="@director.Id">
             <td>@director.LastFirst</td>
             <td>@director.BirthDate</td>
             <td>@director.Nationality</td>            
