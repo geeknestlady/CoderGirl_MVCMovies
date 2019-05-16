@@ -52,23 +52,30 @@ namespace CoderGirl_MVCMovies.Data
             movie.Ratings = ratings;
             return movie;
         }
-       
+        private Movie SetDirectorName(Movie movie)
+        {
+            Director director = directorRepository.GetById(movie.DirectorId);
+            movie.DirectorName = director.LastFirst;
+            return movie;
+        }
+
         //Created method to Set the movie.AverageRating from ratingRepository
-        private Movie SetAverageRating(Movie movie)
-        {
-            double ratingAverage = ratingRepository.GetMovieRatings()
-                                                .Where(rating => rating.MovieName == movie.Name)
-                                                .Average(rating => rating.Rating);
-            movie.AverageRating = ratingAverage;
-            return movie;
-        }
+        //private Movie SetAverageRating(Movie movie)
+        //{
+
+        //    List<Movie> ratings = SetMovieRatings(movie);
+        //    double ratingAverage = SetMovieRatings(movie).Average(rating => rating.Rating);
+
+        //    movie.AverageRating = ratingAverage;
+        //    return movie;
+        //}
         //Created method to Set the movie.RatingsNumber by counting items in movie.Ratings
-        private Movie SetNumberofRatings(Movie movie)
-        {
-            int numberOfRatings = movie.Ratings.Count;
-            movie.RatingsNumber = numberOfRatings;
-            return movie;
-        }
+        //private Movie SetNumberofRatings(Movie movie)
+        //{
+        //    int numberOfRatings = movie.Ratings.Count;
+        //    movie.RatingsNumber = numberOfRatings;
+        //    return movie;
+        //}
       
     }
 }

@@ -20,10 +20,18 @@
         <td>@movie.Name</td>
         <td>@movie.DirectorName</td>
         <td>@movie.Year</td>
-        <td>@movie.AverageRating</td>
-        <td>@movie.RatingsNumber</td>
+        @if (movie.Ratings.Count > 0)
+        {
+            <td>@movie.Ratings.Average()</td>
+        }
+        else
+        {
+            <td>none</td>
+        }
+        <td>@movie.Ratings.Count</td>
         <td><a asp-controller="Movie" asp-action="Edit" asp-route-id="@movie.Id">Edit</a></td>
         <td><a asp-controller="Movie" asp-action="Delete" asp-route-id="@movie.Id">Delete</a></td>
+        <td><a asp-controller="MovieRating" asp-action="Create" asp-route-movieId="@movie.Id">Rate</a></td>
     </tr>
     }
 </table>

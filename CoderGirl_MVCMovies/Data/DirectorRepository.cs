@@ -28,9 +28,7 @@ namespace CoderGirl_MVCMovies.Data
 
         public int Save(Director director)
         {
-            director.Id = nextId++;
-            string format = $"{director.LastName}, + {director.FirstName}";
-            director.LastFirst = format;
+            director.Id = nextId++;         
             directors.Add(director);
             return director.Id;
         }
@@ -40,12 +38,12 @@ namespace CoderGirl_MVCMovies.Data
             this.Delete(director.Id);
             directors.Add(director);
         }      
-        private Director NameFormat (Director director)
-        {
-            string format = $"{director.LastName}, + {director.FirstName}";
-            director.LastFirst = format;
-            return director;
-        }
+        //private Director NameFormat (Director director)
+        //{
+        //    string format = $"{director.LastName}, + {director.FirstName}";
+        //    director.LastFirst = format;
+        //    return director;
+        //}
      
         
     }

@@ -14,6 +14,9 @@ namespace CoderGirl_MVCMovies.Models
         public List<int> Ratings { get; set; }
         public int DirectorId { get; set; }
         public double AverageRating { get; set; }
-        public int RatingsNumber { get; set; }
+        //public int RatingsNumber
+        //{
+        //    get { return Ratings.Count; }
+        //}
     }
   }
