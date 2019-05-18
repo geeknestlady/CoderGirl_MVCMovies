@@ -10,8 +10,9 @@ namespace CoderGirl_MVCMovies.Controllers
 {
     public class MovieController : Controller
     {
-        public static IMovieRespository movieRepository = RepositoryFactory.GetMovieRepository();
-        public static IDirectorRepository directorRepository = RepositoryFactory.GetDirectorRepository();
+        static IMovieRespository movieRepository = RepositoryFactory.GetMovieRepository();
+        static IDirectorRepository directorRepository = RepositoryFactory.GetDirectorRepository();
+        static IMovieRatingRepository ratingRepository = RepositoryFactory.GetMovieRatingRepository();
 
         public IActionResult Index()
         {
@@ -32,7 +33,7 @@ namespace CoderGirl_MVCMovies.Controllers
             movieRepository.Save(movie);
             return RedirectToAction(actionName: nameof(Index));
         }
-
+ 
         [HttpGet]
         public IActionResult Edit(int id)
         {

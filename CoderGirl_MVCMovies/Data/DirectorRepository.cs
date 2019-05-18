@@ -8,7 +8,7 @@ namespace CoderGirl_MVCMovies.Data
 {
     public class DirectorRepository : IDirectorRepository
     {
-        private static List<Director> directors = new List<Director>();
+        private List<Director> directors = new List<Director>();
         private static int nextId = 1;
 
         public void Delete(int id)
