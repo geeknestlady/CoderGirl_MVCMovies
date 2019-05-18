@@ -6,8 +6,9 @@ using CoderGirl_MVCMovies.Models;
 
 namespace CoderGirl_MVCMovies.Data
 {
-    public class MovieRepository : IMovieRespository
+    public class MovieRepository : IMovieRepository
     {
+        public static IMovieRatingRepository ratingRepository = RepositoryFactory.GetMovieRatingRepository();
         static List<Movie> movies = new List<Movie>();
         static int nextId = 1;
 
@@ -31,6 +32,16 @@ namespace CoderGirl_MVCMovies.Data
             movie.Id = nextId++;
             movies.Add(movie);
             return movie.Id;
+        }
+        public Movie SetMovieRatings(Movie movie)
+        {
+            List<int> ratings = ratingRepository.GetMovieRatings()
+                                                .Where(rating => rating.MovieId == movie.Id)
+                                                .Select(rating => rating.Rating)
+                                                .ToList();
+            movie.Ratings = ratings;
+            return movie;
+                                               
         }
 
         public void Update(Movie movie)
