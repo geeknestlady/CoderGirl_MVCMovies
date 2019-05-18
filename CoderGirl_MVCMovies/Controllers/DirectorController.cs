@@ -16,6 +16,7 @@ namespace CoderGirl_MVCMovies.Controllers
         {
             List<Director> directors = directorRepository.GetDirectors();            
             return View(directors);
+          
         }
 
         [HttpGet]
