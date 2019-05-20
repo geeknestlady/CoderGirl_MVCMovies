@@ -86,7 +86,7 @@ This week, do a class diagram to set up implementation of next weeks refactor. B
 - Class diagram for BaseRepository which contains methods common to MovieRepository, DirectorRepository and MovieRatingRepository
 - Each method on the BaseRepository should take either an int or a IModel object
 - Class diagrams for MovieRepository, DirectorRepository and MovieRatingRepository
-
+`
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 5/22/2019
