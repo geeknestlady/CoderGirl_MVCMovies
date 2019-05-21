@@ -19,24 +19,26 @@ namespace CoderGirl_MVCMovies.Controllers
             return View(movieRatings);
         }
 
+        //[HttpGet]
+        //public IActionResult Create()
+        //{
+        //    ViewBag.MovieNames = movieRepository.GetMovies().Select(m => m.Name).ToList();
+        //    return View();
+        //}
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create(int movieId)
         {
-            ViewBag.MovieNames = movieRepository.GetMovies().Select(m => m.Name).ToList();
-            return View();
+            string movieName = movieRepository.GetById(movieId).Name;
+            MovieRating movieRating = new MovieRating();
+            movieRating.MovieId = movieId;
+            movieRating.MovieName = movieName;
+            return View(movieRating);
+
         }
 
-        //[HttpPost]
-        //public IActionResult Create(MovieRating movieRating)
-        //{
-
-        //   // Movie movie = movieRepository.GetById(movieRating.Id);
-        //   // movieRating.MovieId = movie.Id;
-        //    ratingRepository.Save(movieRating);
-        //    return RedirectToAction(actionName: nameof(Index));
-        //}
+     
         [HttpPost]
-        public IActionResult Create(MovieRating movieRating)
+        public IActionResult Create(int movieId, MovieRating movieRating)
         {
             var movie = movieRepository.GetMovies().FirstOrDefault(x => x.Name == movieRating.MovieName);
             if (movie.Id != movieRating.MovieId)
