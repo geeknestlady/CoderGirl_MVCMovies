@@ -41,7 +41,7 @@ namespace CoderGirl_MVCMovies.Controllers
 
             if(ModelState.ErrorCount > 0)
             {
-                ViewBag.Directors = movieRepository.GetModels();
+                ViewBag.Directors = directorRepository.GetModels().Cast<Director>().ToList();
                 return View(movie);
             }
 
