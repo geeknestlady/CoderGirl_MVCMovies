@@ -12,6 +12,7 @@ namespace CoderGirl_MVCMovies.Controllers
     {
         static IRepository movieRepository = RepositoryFactory.GetMovieRepository();
         static IRepository directorRepository = RepositoryFactory.GetDirectorRepository();
+        static IRepository baseRepository = RepositoryFactory.GetBaseRepository();
 
         public IActionResult Index()
         {
@@ -40,7 +41,7 @@ namespace CoderGirl_MVCMovies.Controllers
 
             if(ModelState.ErrorCount > 0)
             {
-                ViewBag.Directors = directorRepository.GetDirectors();
+                ViewBag.Directors = movieRepository.GetModels();
                 return View(movie);
             }
 
@@ -51,7 +52,7 @@ namespace CoderGirl_MVCMovies.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            Movie movie = movieRepository.GetById(id);
+            Movie movie = (Movie)movieRepository.GetById(id);
             return View(movie);
         }
 

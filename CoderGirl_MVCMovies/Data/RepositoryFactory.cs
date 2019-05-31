@@ -10,6 +10,7 @@ namespace CoderGirl_MVCMovies.Data
         private static IRepository movieRatingRepository;
         private static IRepository movieRepository;
         private static IRepository directorRepository;
+        private static IRepository baseRepository;
 
         public static IRepository GetMovieRatingRepository()
         {
@@ -30,6 +31,12 @@ namespace CoderGirl_MVCMovies.Data
             if (directorRepository == null)
                 directorRepository = new DirectorRepository();
             return directorRepository;
+        }
+        public static IRepository GetBaseRepository()
+        {
+            if (baseRepository == null)
+                baseRepository = new BaseRepository();
+            return baseRepository;
         }
     }
 }

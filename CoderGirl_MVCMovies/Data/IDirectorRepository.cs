@@ -1,12 +1,12 @@
-﻿using CoderGirl_MVCMovies.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoderGirl_MVCMovies.Models;
 
 namespace CoderGirl_MVCMovies.Data
 {
-    public interface IDirectorRepository
+    interface IDirectorRepository
     {
         int Save(Director director);
 
