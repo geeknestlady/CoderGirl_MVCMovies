@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoderGirl_MVCMovies.Data;
 using CoderGirl_MVCMovies.Models;
-using CoderGirl_MVCMovies.ViewModels.Movie;
+using CoderGirl_MVCMovies.ViewModels.Movies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoderGirl_MVCMovies.Controllers
@@ -44,8 +44,8 @@ namespace CoderGirl_MVCMovies.Controllers
                 model.Directors = directorRepository.GetModels().Cast<Director>().ToList();
                 return View(model);
             }
+
             model.Persist();
-            //movieRepository.Save(model);
             return RedirectToAction(actionName: nameof(Index));
         }
 
