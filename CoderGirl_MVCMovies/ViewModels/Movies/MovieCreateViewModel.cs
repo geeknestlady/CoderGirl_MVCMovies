@@ -11,31 +11,28 @@ namespace CoderGirl_MVCMovies.ViewModels.Movies
     {
         public static MovieCreateViewModel GetMovieCreateViewModel()
         {
+            MovieCreateViewModel model = new MovieCreateViewModel();
             List<Director> directors = RepositoryFactory.GetDirectorRepository()
                 .GetModels()
                 .Cast<Director>()
                 .ToList();
-            return new MovieCreateViewModel(directors);
+            model.Directors = directors;
+            return model;
         }
 
 
         public string Name { get; set; }
         public int DirectorId { get; set; }
         public List<Director> Directors { get; set; }
-        public int Year { get; set; }        
-
-        private MovieCreateViewModel(List<Director> directors)
-        {
-            this.Directors = directors;
-        }
+        public int Year { get; set; }
 
         public void Persist()
         {
-            Movie movie = new Movie
+            Models.Movie movie = new Models.Movie
             {
                 Name = this.Name,
                 DirectorId = this.DirectorId,
-                Year = this.Year
+                Year = this.Year,
             };
             RepositoryFactory.GetMovieRepository().Save(movie);
         }

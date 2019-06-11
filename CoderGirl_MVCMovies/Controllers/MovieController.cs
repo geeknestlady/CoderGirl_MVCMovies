@@ -16,7 +16,7 @@ namespace CoderGirl_MVCMovies.Controllers
 
         public IActionResult Index()
         {
-            List<Movie> movies = movieRepository.GetModels().Cast<Movie>().ToList();
+            var movies = MovieListItemViewModel.GetMovieList();
             return View(movies);
         }
 
@@ -52,18 +52,15 @@ namespace CoderGirl_MVCMovies.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            Movie movie = (Movie)movieRepository.GetById(id);
+            MovieEditViewModel movie = MovieEditViewModel.GetModel(id);
             return View(movie);
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, Movie movie)
+        public IActionResult Edit(int id, MovieEditViewModel movie)
         {
-            //since id is not part of the edit form, it isn't included in the model, thus it needs to be set from the route value
-            //there are alternative patterns for doing this - for one, you could include the id in the form but make it hidden
-            //feel free to experiment - the tests wont' care as long as you preserve the id correctly in some manner
-            movie.Id = id; 
-            movieRepository.Update(movie);
+
+            movie.Persist(id);
             return RedirectToAction(actionName: nameof(Index));
         }
 
