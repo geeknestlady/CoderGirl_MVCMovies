@@ -75,7 +75,7 @@ namespace Test
         public void TestCreateMovie(string name, string director, string year)
         {
             //add movies to data
-            driver.Url = BASE_URL + "/movie/create";
+            driver.Url = BASE_URL + "/Movie/Create";
             driver.FindElementByName("Name").SendKeys(name);
             var directorSelect = new SelectElement(driver.FindElementByName("DirectorId"));
             directorSelect.SelectByText(director);
@@ -85,7 +85,7 @@ namespace Test
             movieSubmit.Click();
 
             //verify it redirects to Index
-            Assert.Equal(Uri.EscapeUriString(BASE_URL + $"/movie"), driver.Url, true);
+            Assert.Equal(Uri.EscapeUriString(BASE_URL + $"/Movie"), driver.Url, true);
         }
 
         [Theory, TestPriority(2)]
