@@ -17,6 +17,7 @@ namespace CoderGirl_MVCMovies.ViewModels.MovieRatings
             MovieRating movieRating = new MovieRating();
             movieRating.MovieId = movieId;
             movieRating.MovieName = movieName;
+           
 
             return new MovieRatingCreateViewModel
             {
@@ -27,6 +28,7 @@ namespace CoderGirl_MVCMovies.ViewModels.MovieRatings
             };
         }
 
+        public int Id { get; set; }
         public string MovieName { get; set; }
         public int Rating { get; set; }
         public int MovieId { get; set; }
@@ -35,6 +37,7 @@ namespace CoderGirl_MVCMovies.ViewModels.MovieRatings
         {
             MovieRating rating = new MovieRating
             {
+                Id = this.Id,
                 MovieName = this.MovieName,
                 Rating = this.Rating,
                 MovieId = this.MovieId,                

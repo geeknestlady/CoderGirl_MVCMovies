@@ -2,6 +2,7 @@
 using CoderGirl_MVCMovies.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,6 +39,8 @@ namespace CoderGirl_MVCMovies.ViewModels.Movies
 
         public int Id { get; set; }
         public string Name { get; set; }
+
+        [Display(Name = "Director")]
         public string DirectorName { get; set; }
         public int Year { get; set; }
         public int DirectorId { get; set; }

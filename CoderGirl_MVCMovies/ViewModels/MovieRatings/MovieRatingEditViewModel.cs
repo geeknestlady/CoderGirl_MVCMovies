@@ -35,7 +35,7 @@ namespace CoderGirl_MVCMovies.ViewModels.MovieRatings
                 Rating = this.Rating,
                 MovieId = this.MovieId,               
             };
-            RepositoryFactory.GetDirectorRepository().Update(rating);
+            RepositoryFactory.GetMovieRatingRepository().Update(rating);
         }
     }
 }
