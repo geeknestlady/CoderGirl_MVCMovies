@@ -34,7 +34,7 @@ namespace CoderGirl_MVCMovies.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int movieId, MovieRatingCreateViewModel model)
+        public IActionResult Create(MovieRatingCreateViewModel model)
         {
             model.Persist();
             return RedirectToAction(controllerName: nameof(Movie), actionName: nameof(Index));

@@ -106,7 +106,7 @@ namespace Test
             Assert.Equal("Number of Ratings", headers[4].Text);
 
             //Verify a row contains expected movie
-            //Assert.Contains(rows, row => MovieRowMatches(row, name, director, year, "none", "0"));
+            Assert.Contains(rows, row => MovieRowMatches(row, name, director, year, "none", "0"));
         }
 
         [Theory, TestPriority(3)]

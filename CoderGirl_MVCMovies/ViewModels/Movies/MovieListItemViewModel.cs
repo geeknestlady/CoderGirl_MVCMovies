@@ -28,12 +28,13 @@ namespace CoderGirl_MVCMovies.ViewModels.Movies
                 DirectorName = movie.DirectorName,
                 Year = movie.Year,
                 DirectorId = movie.DirectorId,
-                Ratings = RepositoryFactory.GetMovieRatingRepository()
-                       .GetModels()
-                       .Cast<MovieRating>()
-                       .Where(rating => rating.MovieName == movie.Name)
-                       .Select(rating => rating.Rating)
-                       .ToList()
+                Ratings = movie.Ratings,
+                //Ratings = RepositoryFactory.GetMovieRatingRepository()
+                //       .GetModels()
+                //       .Cast<MovieRating>()
+                //       .Where(rating => rating.MovieName == movie.Name)
+                //       .Select(rating => rating.Rating)
+                //       .ToList()
             };
         }
 
