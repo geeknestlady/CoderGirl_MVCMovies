@@ -14,10 +14,11 @@ namespace CoderGirl_MVCMovies.ViewModels.Movies
         {
             return RepositoryFactory.GetMovieRepository()
                 .GetModels()
-                .Cast<Movie>()
+                .Cast<Movie>() 
                 .Select(movie => GetMovieListItemFromMovie(movie))
                 .ToList();
         }
+        //.Select(movie => GetMovieListItemFromMovie(movie))
 
         private static MovieListItemViewModel GetMovieListItemFromMovie(Movie movie)
         {

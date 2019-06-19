@@ -79,13 +79,14 @@ namespace Test
             driver.FindElementByName("Name").SendKeys(name);
             var directorSelect = new SelectElement(driver.FindElementByName("DirectorId"));
             directorSelect.SelectByText(director);
+            driver.FindElementByName("Year").Clear();
             driver.FindElementByName("Year").SendKeys(year);
             var movieForm = driver.FindElementByTagName("form");
             var movieSubmit = movieForm.FindElement(By.TagName("button"));
             movieSubmit.Click();
 
             //verify it redirects to Index
-            Assert.Equal(Uri.EscapeUriString(BASE_URL + $"/Movie/Create"), driver.Url, true);
+            Assert.Equal(Uri.EscapeUriString(BASE_URL + $"/Movie"), driver.Url, true);
         }
 
         [Theory, TestPriority(2)]

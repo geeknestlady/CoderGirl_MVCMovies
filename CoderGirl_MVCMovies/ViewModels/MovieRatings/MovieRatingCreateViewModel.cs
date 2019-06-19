@@ -25,6 +25,7 @@ namespace CoderGirl_MVCMovies.ViewModels.MovieRatings
                 MovieId = movieRating.MovieId,
                 MovieName = movieRating.MovieName,
                 Rating = movieRating.Rating,
+                Id = movieRating.Id,
 
             };
 
