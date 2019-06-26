@@ -16,7 +16,7 @@ namespace CoderGirl_MVCMovies.ViewModels.Movies
         {
             return context.Movies
                     .Include(m => m.Ratings)
-                    .Include(m => m.Director)
+                    .Include(m => m.Directors)
                     .Select(m => new MovieListItemViewModel(m))
                     .ToList();
                 
@@ -36,7 +36,7 @@ namespace CoderGirl_MVCMovies.ViewModels.Movies
             this.Id = movie.Id;
             this.Name = movie.Name;
             this.Year = movie.Year;
-            this.DirectorName = movie.Director.FullName;
+            //this.DirectorName = movie.Directors.FullName;
             this.AverageRating = movie.Ratings.Count > 0 ? Math.Round(movie.Ratings.Average(x => x.Rating), 2).ToString() : "none";
             this.NumberOfRatings = movie.Ratings.Count;
         }
