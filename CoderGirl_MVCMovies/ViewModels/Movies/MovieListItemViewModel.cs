@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoderGirl_MVCMovies.ViewModels.Movies
 {
@@ -16,7 +17,8 @@ namespace CoderGirl_MVCMovies.ViewModels.Movies
             return context.Movies
                     .Include(m => m.Ratings)
                     .Include(m => m.Director)
-                    .Select(m => m.)
+                    .Select(m => new MovieListItemViewModel(m))
+                    .ToList();
                 
         }
 
